@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/cadastroLivro.css">
+
+    <title>Editar Livro</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar bg-body-tertiary">
+            <div class="container ">
+                <a class="navbar-brand " href="#">
+                    <span class="brand-text">MyBookshelf</span>
+                    <img src="book-shelf-svgrepo-com.svg" alt="logo" width="30" height="24">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="form-signin w-100 m-auto d-flex justify-content-center align-items-center">
+        <div class="container">
+            <div class="row">
+                <form onsubmit="atualizar(event)">
+                    <h3 class="h3 mb-3 fw-normal text-center lead">Editar Livros</h3>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="titulo" placeholder="Título" name="titulo" required>
+                        <label for="">Titulo</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="nome" placeholder="Nome" name="nome" required>
+                        <label for="">Nome do Autor/Autora</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="genero" placeholder="genero" name="genero" required>
+                        <label for="">Gênero</label>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6 mb-1">
+                            <button id="btnCadastrar" class="btn btn-primary w-100 py-2" type="submit">Salvar</button>
+
+                        </div>
+
+                        <div class="col-sm-6 mb-1">
+                            <button type="button" class="btn btn-danger w-100 py-2" onclick="voltarHome()">Cancelar</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="jquery-3.7.1.js"></script>
+    <script src="js/editarLivro.js"></script>
+</body>
+
+</html>

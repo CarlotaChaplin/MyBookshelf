@@ -1,0 +1,22 @@
+{
+  "cadastros": [
+    {
+      "id": "aaa",
+      "titulo": "A Biblioteca da meia noite",
+      "nome": "Matt Haig",
+      "genero": "Romance"
+    },
+    {
+      "id": "arroz",
+      "titulo": "As 5 linguagens do amor",
+      "nome": "Gary Chapman",
+      "genero": "Psicologia"
+    },
+    {
+      "id": "b849",
+      "titulo": "jQuery com Ajax",
+      "nome": "Carlota Fernanda Chaplin de Amorim",
+      "genero": "tecnologia"
+    }
+  ]
+}
