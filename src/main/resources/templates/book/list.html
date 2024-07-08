@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Registro de Livros</title>
+    <div th:replace="fragments/head :: header"></div>
+  </head>
+
+  <body>
+    <div th:replace="fragments/header :: header"></div>
+
+    <main class="pt-5 w-100 m-auto d-flex justify-content-center align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 d-flex">
+            <input class="form-control me-2" type="search" placeholder="pesquisa" aria-label="Search" />
+            <span>
+              <button type="button" class="btn btn-light">
+                <i class="bi bi-search"></i>
+              </button>
+            </span>
+          </div>
+          <div class="col-sm-2"></div>
+          <div class="col-sm-4 text-end">
+            <a th:href="@{'/book/create'}">
+              <button class="btn btn-primary w-30 py-2" type="submit">Cadastrar Livro</button>
+            </a>
+          </div>
+
+          <div class="pt-2 col-sm-12">
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Título</th>
+                  <th scope="col">Autor</th>
+                  <th scope="col">Gênero</th>
+                  <th scope="col">Ações</th>
+                </tr>
+              </thead>
+              <tbody id="tabela"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmação exclusão?</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">Você deseja realmente excluir o livro <span id="itemName"></span> ?</div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+            <button id="confirmDelete" type="button" class="btn btn-danger">Sim</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script th:src="@{/js/book/list.js}"></script>
+  </body>
+</html>
