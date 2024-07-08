@@ -1,7 +1,16 @@
 const list = async () => {
   const res = await fetch('http://localhost:8080/api/book');
   const data = await res.json();
+  mountTable(data);
+}
 
+const search = async (title) => {
+  const res = await fetch(`http://localhost:8080/api/book/search?title=${title}`);
+  const data = await res.json();
+  mountTable(data);
+};
+
+const mountTable = (data) => {
   $('#tabela').empty();
   data.forEach(element => {
     $('#tabela').append(`
@@ -23,7 +32,7 @@ const list = async () => {
       </tr>
     `);
   });
-}
+};
 
 $(document).ready(function () {
   list();
@@ -73,4 +82,11 @@ function excluir(id) {
     }
   })
   .catch(function (error) { console.log(error) })
+}
+
+function searchTitle(event) {
+  event.preventDefault();
+
+  const title = $("#searchtitle").val();
+  search(title);
 }

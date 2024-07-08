@@ -22,7 +22,7 @@ function login(event) {
     })
     .then(function (data) {
       console.log(data);
-      window.location.href = "/book"
+      window.location.href = "/book";
     })
     .catch(function (error) {
       console.log(error)

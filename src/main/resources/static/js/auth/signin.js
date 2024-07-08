@@ -17,9 +17,13 @@ $(document).ready(function () {
       headers: {
         "Content-Type": "application/json"
       }
-    }).then(function (res) { return res.json() })
-      .then(function (data) { console.log(data) })
-      .catch(function (error) { console.log(error) })
+    })
+    .then(function (res) { return res.json() })
+    .then(function (data) { 
+      console.log(data);
+      window.location.href = "/book"; 
+    })
+    .catch(function (error) { console.log(error) })
   });
 });
 

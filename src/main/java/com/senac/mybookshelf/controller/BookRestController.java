@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -23,6 +24,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class BookRestController {
     @Autowired
     BookService service;
+    
+    private User getUserSession(HttpServletRequest request) {
+        HttpSession sessao = request.getSession(); 
+        if (sessao == null) {
+            return null;
+        }
+
+        var user = (User) sessao.getAttribute("user");
+        return user;
+    }
     
     @GetMapping
     public ResponseEntity<List> getAll(HttpServletRequest request) {
@@ -37,6 +48,17 @@ public class BookRestController {
         }
         List<Book> books = service.getAll(user.getId());
         return new ResponseEntity<>(books, HttpStatus.OK);
+    }
+    
+    @GetMapping("/search")
+    public ResponseEntity<List> search(HttpServletRequest request, @RequestParam String title) {
+        var user = this.getUserSession(request);
+        if (user == null) {
+            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+        }
+        
+        var search = service.search(user.getId(), title);
+        return new ResponseEntity<>(search, HttpStatus.ACCEPTED);
     }
     
     @GetMapping("/{id}")

@@ -27,6 +27,10 @@ public class BookService {
         return bookRepository.findByUser_Id(userId);
     }
     
+    public List<Book> search(Integer userId, String title) {
+        return bookRepository.findByUserIdAndTitle(userId, title);
+    }
+    
     public Book update(Integer Id, Book book) {
         Book newBook = getByID(Id);
         newBook.setName(book.getName());
